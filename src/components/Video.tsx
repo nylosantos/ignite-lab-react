@@ -11,6 +11,7 @@ interface VideoProps {
 
 export function Video(props: VideoProps) {
   const { data } = useGetLessonBySlugQuery({
+    fetchPolicy: "no-cache", //Prevent error loading video
     variables: {
       slug: props.lessonSlug,
     }
@@ -22,6 +23,7 @@ export function Video(props: VideoProps) {
       </div>
     )
   }
+
   console.log(data.lesson.videoId)
   return (
     <div className="flex-1">
